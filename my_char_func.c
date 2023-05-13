@@ -72,22 +72,24 @@ void my_puts(char *stri)
  */
 int my_atoi(char *st)
 {
-	int i, a;
-	int b, x;
+	int i;
+	int x = 0;
+	int y = -1;
+	int z = 0;
 
-	i = b = 0;
-	x = 1;
-	while ((s[i] < '0' || s[i] > '9') && (s[i] != '\0'))
+	for (i = 0; st[i] != '\0'; i++)
 	{
-		if (s[i] == '-')
-			x *= -1;
-		i++;
+		if (st[i] == '-')
+			y = y * -1;
+		if (st[i] >= '0' && st[i] <= '9')
+		{
+			x = x * 10;
+			x -= (st[i] - '0');
+			z = 1;
+		}
+		else if (z == 1)
+			break;
 	}
-	a = i;
-	while ((s[a] >= '0') && (s[a] <= '9'))
-	{
-		b = (b * 10) + x * ((s[a]) - '0');
-		a++;
-	}
-	return (b);
+	x = y * x;
+	return (x);
 }

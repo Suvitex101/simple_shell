@@ -45,7 +45,7 @@ char *my_itoa(unsigned int num)
 	char *str;
 
 	count = my_intlen(num);
-	str = malloc(count + 1);
+	str = malloc(count + 2);
 	if (str == NULL)
 		return (NULL);
 	*str = '\0';
@@ -90,6 +90,8 @@ int my_strcmp(char *str1, char *str2)
 	count2 = my_strlen(str2);
 
 	if (str1 == NULL || str2 == NULL)
+		return (1);
+	if (count1 != count2)
 		return (1);
 	for (a = 0; str1[a]; a++)
 	{
