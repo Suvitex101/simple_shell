@@ -23,6 +23,13 @@ void dis_err(char *line, int run, char **argv);
 void my_perror(char **argv, int str, char **line);
 void my_error(char **argv, int str);
 
+/*****************MEMORY***************************/
+void free_me(char **input, char *run);
+void *my_realloc(void *point, unsigned int old_s, unsigned int new_s);
+char *my_memcpy(char *tmp, char *input, unsigned int num);
+void *mem_arr(void *prt, int num, unsigned int run);
+void *my_calloc(unsigned int value);
+
 /****************CHAR FUNCTIONS*********************/
 int my_strlen(char *str);
 int _putchar(char c);
@@ -52,5 +59,6 @@ int find_path(char **command);
 int exec_cmd(char **input, char *run, int s, char **argv);
 void handle_signal(int check);
 void prompt(void);
+char **sep_handler(char *cmd)
 
 #endif
