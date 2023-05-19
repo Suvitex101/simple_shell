@@ -18,6 +18,11 @@
 #define PRINTF(str) (write(STDOUT_FILENO, str, my_strlen(str)))
 extern char **environ;
 
+/****************ERROE MESSAGE*******************/
+void dis_err(char *line, int run, char **argv);
+void my_perror(char **argv, int str, char **line);
+void my_error(char **argv, int str);
+
 /****************CHAR FUNCTIONS*********************/
 int my_strlen(char *str);
 int _putchar(char c);
@@ -37,6 +42,11 @@ char *my_strcat(char *dest, char *sr);
 int my_strncmp(const char *str1, const char *str2, size_t num);
 char *my_strdup(char *st);
 char *my_strchr(char *str, char s);
+
+/*****************PATH FINDER************************/
+char create_cmd(char *input, char *toatal);
+char *my_getenv(char *env);
+int find_path(char **command);
 
 /*****************COMMAND FUNCTIONS*******************/
 int exec_cmd(char **input, char *run, int s, char **argv);
