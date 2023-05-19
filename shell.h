@@ -38,4 +38,9 @@ int my_strncmp(const char *str1, const char *str2, size_t num);
 char *my_strdup(char *st);
 char *my_strchr(char *str, char s);
 
+/*****************COMMAND FUNCTIONS*******************/
+int exec_cmd(char **input, char *run, int s, char **argv);
+void handle_signal(int check);
+void prompt(void);
+
 #endif
