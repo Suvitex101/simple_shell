@@ -32,3 +32,29 @@ char **sep_handler(char *cmd)
 	inputs[a] = NULL;
 	return (inputs);
 }
+/**
+ *dis_history - Function to keep users history
+ *@line: Command line
+ *return: 1 on success
+ */
+int dis_history(char *line)
+{
+	int run = 0;
+	char *fname = ".display_history";
+	ssize_t rd, wt;
+
+	if (fname == NULL)
+		return (-1);
+	rd = open(fname, O_CREAT | O_RDWR | O_APPEND, 00600);
+	if (rd < 0)
+		return (-1);
+	if (line != NULL)
+	{
+		while (line[run])
+			run++;
+		wt = write(rd, line, run);
+		if (wt < 0)
+			return (-1);
+	}
+	return (1);
+}

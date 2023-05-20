@@ -23,6 +23,10 @@ void dis_err(char *line, int run, char **argv);
 void my_perror(char **argv, int str, char **line);
 void my_error(char **argv, int str);
 
+
+/********************HISTORY*********************/
+int dis_history(char *line);
+
 /*****************MEMORY***************************/
 void free_me(char **input, char *run);
 void *my_realloc(void *point, unsigned int old_s, unsigned int new_s);
