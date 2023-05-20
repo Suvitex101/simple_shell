@@ -59,6 +59,10 @@ int find_path(char **command);
 int exec_cmd(char **input, char *run, int s, char **argv);
 void handle_signal(int check);
 void prompt(void);
-char **sep_handler(char *cmd)
+char **sep_handler(char *cmd);
+
+char *my_ent(char *str);
+char *my_space(char *st);
+void my_hash(char *tmp);
 
 #endif
