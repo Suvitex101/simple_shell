@@ -23,6 +23,13 @@ void dis_err(char *line, int run, char **argv);
 void my_perror(char **argv, int str, char **line);
 void my_error(char **argv, int str);
 
+/****************BUILTIN************************/
+int ch_dir(char **line, __attribute__((unused))int c);
+int print_env(__attribute__((unused)) char **line,
+		__attribute__((unused)) int s);
+int echo_handler(char **line, int c);
+int echo_history(__attribute__((unused))char **run,
+		__attribute__((unused))int ch);
 
 /********************HISTORY*********************/
 int dis_history(char *line);
@@ -38,6 +45,9 @@ void *my_realloc(void *point, unsigned int old_s, unsigned int new_s);
 char *my_memcpy(char *tmp, char *input, unsigned int num);
 void *mem_arr(void *prt, int num, unsigned int run);
 void *my_calloc(unsigned int value);
+
+void env_mem_free(char **input);
+void make_env(char **line);
 
 /****************CHAR FUNCTIONS*********************/
 int my_strlen(char *str);
@@ -68,12 +78,14 @@ int dis_echo(char **line);
 char create_cmd(char *input, char *toatal);
 char *my_getenv(char *env);
 int find_path(char **command);
+char *my_getline();
 
 /*****************COMMAND FUNCTIONS*******************/
 int exec_cmd(char **input, char *run, int s, char **argv);
 void handle_signal(int check);
 void prompt(void);
 char **sep_handler(char *cmd);
+char **run_cmd(char *line);
 
 char *my_ent(char *str);
 char *my_space(char *st);

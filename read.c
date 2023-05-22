@@ -42,7 +42,7 @@ void run_file(char *cmd, int c, FILE *fl, char **argv)
 	char **run;
 	int check = 0;
 
-	run = parse_cmd(cmd);
+	run = run_cmd(cmd);
 	if (my_strncmp(run[0], "exit", 4) == 0)
 		exit_file(run, cmd, fl);
 	else if (check_builtin(run) == 0)
