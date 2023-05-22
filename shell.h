@@ -27,6 +27,11 @@ void my_error(char **argv, int str);
 /********************HISTORY*********************/
 int dis_history(char *line);
 
+/*******************READ FIILE*******************/
+void file_reader(char *f, char **argv);
+void run_file(char *cmd, int c, FILE *fl, char **argv);
+void exit_file(char **cmd, char *input, FILE *fl);
+
 /*****************MEMORY***************************/
 void free_me(char **input, char *run);
 void *my_realloc(void *point, unsigned int old_s, unsigned int new_s);
@@ -53,6 +58,11 @@ char *my_strcat(char *dest, char *sr);
 int my_strncmp(const char *str1, const char *str2, size_t num);
 char *my_strdup(char *st);
 char *my_strchr(char *str, char s);
+
+/*******************DISPLAY************************/
+void dis_int(int num);
+void dis_num(unsigned int num);
+int dis_echo(char **line);
 
 /*****************PATH FINDER************************/
 char create_cmd(char *input, char *toatal);

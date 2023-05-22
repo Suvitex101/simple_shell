@@ -60,3 +60,35 @@ char *my_strchr(char *str, char s)
 	}
 	return (NULL);
 }
+/**
+ * dis_echo - Function for built-in echo function
+ * @line: Pointer to command
+ * Return: 0 Upon Success -1 Upon Failure
+ */
+
+int dis_echo(char **line)
+{
+	pid_t pid;
+	int check;
+
+	pid = fork();
+	if (pid == 0)
+	{
+	if (execve("/bin/echo", line, environ) == -1)
+	{
+		return (-1);
+	}
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		return (-1);
+	}
+	else
+	{
+		do {
+			waitpid(pid, &check, WUNTRACED);
+		} while (!WIFEXITED(check) && !WIFSIGNALED(check));
+	}
+	return (1);
+}

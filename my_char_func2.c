@@ -40,3 +40,36 @@ char *my_strcat(char *dest, char *sr)
 	*dest = '\0';
 	return (ct);
 }
+/**
+ * dis_num - display integers using _putchar function
+ * @num: Unsigned integer
+ */
+void dis_num(unsigned int num)
+{
+	unsigned int a = num;
+
+	if ((a / 10) > 0)
+		dis_num(a / 10);
+
+	_putchar(a % 10 + '0');
+}
+
+/**
+ * dis_int - display integers using _putchar function
+ * @num: Integer
+ */
+
+void dis_int(int num)
+{
+	unsigned int a = num;
+
+	if (num < 0)
+	{
+		_putchar('-');
+		a = -a;
+	}
+	if ((a / 10) > 0)
+		dis_num(a / 10);
+
+	_putchar(a % 10 + '0');
+}
