@@ -35,7 +35,7 @@ char **sep_handler(char *cmd)
 /**
  *dis_history - Function to keep users history
  *@line: Command line
- *return: 1 on success
+ *Return: 1 on success
  */
 int dis_history(char *line)
 {

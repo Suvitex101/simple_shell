@@ -8,13 +8,12 @@
 
 char *my_strtok(char *st, const char *tk)
 {
-	static char *t, *s; 
+	static char *t, *s;
 	unsigned int a;
 
 	if (st != NULL)
 		s = st;
 	t = s;
-
 	if (t == NULL)
 		return (NULL);
 	for (a = 0; t[a] != '\0'; a++)
@@ -22,22 +21,18 @@ char *my_strtok(char *st, const char *tk)
 		if (check_my_delim(t[a], tk) == 0)
 			break;
 	}
-
 	if (s[a] == '\0' || s[a] == '#')
 	{
 		s = NULL;
 		return (NULL);
 	}
-
 	t = s + a;
 	s = t;
-
 	for (a = 0; s[a] != '\0'; a++)
 	{
 		if (check_my_delim(s[a], tk) == 1)
 			break;
 	}
-
 	if (s[a] == '\0')
 		s = NULL;
 	else

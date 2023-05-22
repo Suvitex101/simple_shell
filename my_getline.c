@@ -1,8 +1,7 @@
 #include "shell.h"
 
 /**
-*my _getline - function that reads input from the standard 
-input by user
+*my_getline - function that reads input by user
 * Return: the input by user on a buffer
 */
 
@@ -12,32 +11,26 @@ char *my_getline()
 	char s = 0, *buffer, *buf;
 
 	buffer = malloc(buffsize);
-
 	if (buffer == NULL)
 	{
 		free(buffer);
 		return (NULL);
 	}
-
 	for (tmp = 0; s != EOF && s != '\n'; tmp++)
 	{
 		fflush(stdin);
 		tmp2 = read(STDIN_FILENO, &s, 1);
-
 		if (tmp2 == 0)
 		{
 			free(buffer);
 			exit(EXIT_SUCCESS);
 		}
 		buffer[tmp] = s;
-
 		if (buffer[0] == '\n')
 			return (my_ent(buffer));
-
 		if (tmp >= buffsize)
 		{
 			buffer = realloc(buffer, (buffsize + 2));
-
 			if (buffer == NULL)
 			{
 				free(buffer);
@@ -45,7 +38,6 @@ char *my_getline()
 			}
 		}
 	}
-
 	buffer[tmp] = '\0';
 	buf = my_space(buffer);
 	free(buffer);
