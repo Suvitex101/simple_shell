@@ -24,10 +24,25 @@ void my_perror(char **argv, int str, char **line);
 void my_error(char **argv, int str);
 
 /****************BUILTIN************************/
+int builtin_val(char **line);
+int process_builtin(char **line, int c);
 int ch_dir(char **line, __attribute__((unused))int c);
+/**
+ * print_env - Function to print env
+ * @line: pointer to comd
+ * @s: line status
+ * Return: 0 always
+ */
 int print_env(__attribute__((unused)) char **line,
 		__attribute__((unused)) int s);
 int echo_handler(char **line, int c);
+void my_exit(char **line, char *run, char **argv, int n, int s);
+/**
+ * echo_history - Function to Echo History
+ * @run: Command line
+ * @ch: command status
+ * Return: Always 0
+ */
 int echo_history(__attribute__((unused))char **run,
 		__attribute__((unused))int ch);
 
@@ -69,13 +84,24 @@ int my_strncmp(const char *str1, const char *str2, size_t num);
 char *my_strdup(char *st);
 char *my_strchr(char *str, char s);
 
+/**
+ *struct my_shell - Structure for Builtin cmd
+ *@cmd: Pointer to command
+ *@func: Pointer to function
+ */
+typedef struct my_shell
+{
+	char *cmd;
+	int (*func)(char **run, int c);
+} builtincmd;
+
 /*******************DISPLAY************************/
 void dis_int(int num);
 void dis_num(unsigned int num);
 int dis_echo(char **line);
 
 /*****************PATH FINDER************************/
-char create_cmd(char *input, char *toatal);
+char *create_cmd(char *input, char *toatal);
 char *my_getenv(char *env);
 int find_path(char **command);
 char *my_getline();

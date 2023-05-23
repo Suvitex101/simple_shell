@@ -21,7 +21,7 @@ void free_me(char **input, char *run)
 void *mem_arr(void *prt, int num, unsigned int run)
 {
 	unsigned int a = 0;
-	char *b = c;
+	char *b = prt;
 
 	while (a < run)
 	{
@@ -29,7 +29,7 @@ void *mem_arr(void *prt, int num, unsigned int run)
 		b++;
 		a++;
 	}
-	return (c);
+	return (prt);
 }
 /**
  *my_memcpy - function to copy memory bytes

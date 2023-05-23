@@ -45,9 +45,9 @@ void run_file(char *cmd, int c, FILE *fl, char **argv)
 	run = run_cmd(cmd);
 	if (my_strncmp(run[0], "exit", 4) == 0)
 		exit_file(run, cmd, fl);
-	else if (check_builtin(run) == 0)
+	else if (builtin_val(run) == 0)
 	{
-		check = handle_builtin(run, check);
+		check = process_builtin(run, check);
 		free(run);
 	}
 	else

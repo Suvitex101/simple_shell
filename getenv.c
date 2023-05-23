@@ -41,7 +41,7 @@ char *my_getenv(char *env)
  *@total: pointer to Directory
  *Return: path or NULL on failure
  */
-char create_cmd(char *input, char *total)
+char *create_cmd(char *input, char *total)
 {
 	char *token;
 	size_t run;
@@ -58,5 +58,6 @@ char create_cmd(char *input, char *total)
 	token = my_strcat(token, total);
 	token = my_strcat(token, "/");
 	token = my_strcat(token, input);
+
 	return (token);
 }

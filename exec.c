@@ -23,7 +23,7 @@ int exec_cmd(char **input, char *run, int s, char **argv)
 	}
 	if (pid == 0)
 	{
-		if (my_strcmp(*input, "./", 2) != 0 && my_strcmp(*input, "/", 1) != 0)
+		if (my_strncmp(*input, "./", 2) != 0 && my_strncmp(*input, "/", 1) != 0)
 		{
 			find_path(input);
 		}
