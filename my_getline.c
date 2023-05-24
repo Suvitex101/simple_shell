@@ -11,7 +11,7 @@ char *my_getline()
 	char s = 0, *buffer, *buf;
 
 	buffer = malloc(buffsz);
-	if (buffer == NULL)
+	if (!buffer)
 	{
 		free(buffer);
 		return (NULL);
@@ -31,7 +31,7 @@ char *my_getline()
 		if (tmp >= buffsz)
 		{
 			buffer = realloc(buffer, (buffsz + 2));
-			if (buffer == NULL)
+			if (!buffer)
 			{
 				free(buffer);
 				return (NULL);
