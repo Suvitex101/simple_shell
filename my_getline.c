@@ -28,7 +28,7 @@ char *my_getline()
 		buffer[tmp] = s;
 		if (buffer[0] == '\n')
 			return (my_ent(buffer));
-		if (tmp >= buffsize)
+		if (tmp >= buffsz)
 		{
 			buffer = realloc(buffer, (buffsz + 2));
 			if (buffer == NULL)
