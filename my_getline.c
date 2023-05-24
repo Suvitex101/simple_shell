@@ -7,10 +7,10 @@
 
 char *my_getline()
 {
-	int tmp, tmp2, buffsize = BUF_SIZ;
+	int tmp, tmp2, buffsz = BUF_SIZ;
 	char s = 0, *buffer, *buf;
 
-	buffer = malloc(buffsize);
+	buffer = malloc(buffsz);
 	if (buffer == NULL)
 	{
 		free(buffer);
@@ -30,7 +30,7 @@ char *my_getline()
 			return (my_ent(buffer));
 		if (tmp >= buffsize)
 		{
-			buffer = realloc(buffer, (buffsize + 2));
+			buffer = realloc(buffer, (buffsz + 2));
 			if (buffer == NULL)
 			{
 				free(buffer);
@@ -43,32 +43,4 @@ char *my_getline()
 	free(buffer);
 	my_hash(buf);
 	return (buf);
-}
-/**
- * make_env - Creates env Variables
- * @line: Array to store
- */
-
-void make_env(char **line)
-{
-	int a;
-
-	for (a = 0; environ[a]; a++)
-		line[a] = my_strdup(environ[a]);
-	line[a] = NULL;
-}
-
-/**
- * env_mem_free - Frees env memory array
- * @input:  Array of Environment variables
- */
-
-void env_mem_free(char **input)
-{
-	int a;
-
-	for (a = 0; input[a]; a++)
-	{
-		free(input[a]);
-	}
 }
